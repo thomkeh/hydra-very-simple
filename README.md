@@ -6,7 +6,12 @@ but it shows how hydra can be used as a simple replacement for TypedArgumentPars
 Even this simple use case of hydra has a few advantages:
 - you can specify YAML files with flag values
 - all flags can be overridden on the commandline
-- you can use multirun to try out multiple values for the flags
+- you can use _multirun_ to try out multiple values for the flags
+
+## Table of contents
+
+- [Structure of this repository](#structure-of-this-repository)
+- [Example runs](#example-runs)
 
 ## Structure of this repository
 
