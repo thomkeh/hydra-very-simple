@@ -1,0 +1,3 @@
+defaults:
+  - hydra/launcher: basic
+  - flags: default_adult
