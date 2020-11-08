@@ -44,7 +44,7 @@ def main(cfg: HydraConfig) -> None:
     elif args.dataset == DS.cmnist:
         print("Using CMNIST.")
 
-    args_as_dict = OmegaConf.to_container(args)  # convert to dictionary
+    args_as_dict = OmegaConf.to_container(args, resolve=True)  # convert to dictionary
     print("All args:")
     print(args_as_dict)
 
