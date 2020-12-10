@@ -4,14 +4,14 @@ from enum import Enum
 
 import hydra
 from hydra.core.config_store import ConfigStore
-from omegaconf import MISSING, OmegaConf
+from omegaconf import OmegaConf
 
 
-DS = Enum("DS", ["adult", "cmnist"])  # use Enum instead of Literal
+DS = Enum("DS", "adult cmnist")  # use Enum instead of Literal
 
 
 @dataclass
-class Flags:
+class Args:
     """Flags which this application expects."""
 
     dataset: DS = DS.adult
@@ -22,23 +22,14 @@ class Flags:
     use_wandb: bool = False
 
 
-@dataclass
-class HydraConfig:
-    """Base config class for hydra."""
-
-    flags: Flags = MISSING  # `MISSING` is a special value that indicates a missing value
-
-
 # register the config class
 cs = ConfigStore.instance()
-cs.store(name="hydra", node=HydraConfig)  # we register the config class as "hydra"
+cs.store(name="hydra", node=Args)  # we register the config class as "hydra"
 
 
 @hydra.main(config_name="hydra")  # we specify that we use "hydra" as the main config class
-def main(cfg: HydraConfig) -> None:
+def main(args: Args) -> None:
     """Main function."""
-    args = cfg.flags
-
     if args.dataset == DS.adult:
         print("Using the adult dataset.")
     elif args.dataset == DS.cmnist:

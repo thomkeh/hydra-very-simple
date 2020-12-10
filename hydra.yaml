@@ -1,3 +1,2 @@
 defaults:
-  - hydra/launcher: basic
-  - flags: default_adult
+  - hydra/launcher: basic  # choose hydra launcher

@@ -1,4 +1,0 @@
-# @package _group_
-dataset: cmnist
-depth: 2
-lr: 1.e-4
